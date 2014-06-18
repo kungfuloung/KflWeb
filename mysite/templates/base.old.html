@@ -1,0 +1,76 @@
+	
+<!-- <head> -->
+<style t/*ype="text/css">
+
+</style>
+<!-- </head> -->
+
+<html lang="en">
+<head>
+	<title>{% block title %}{% endblock %}</title>
+
+	<style type="text/css">
+		/*body 		{background-color:#d0e4fe;}*/
+		/*h1 			{color:orange; text-align:center;}*/
+		p  			{font-family:"Times New Roman";	font-size:20px;}
+		#header     { position: relative; height: 200px}
+		div.backg 	{ position: absolute; top: 0; left: 0; margin-top: 0; margin-left: 0;}
+		#logo2      { left: auto; right: 0}
+
+		.KPITable 	{overflow-y: scroll;overflow-x: hidden;}
+
+
+		{% load staticfiles %}
+		body		{background-image:url("{% static "moneyheader.jpg" %}");
+					background-repeat:no-repeat;
+					background-attachment:fixed;
+					background-position:top; 
+					overflow-x: hidden;
+					}
+
+	</style>
+
+</head>
+
+
+<body>
+	<!-- loading template tags -->	
+
+<br><br>
+	
+
+	
+	<table>
+		<col width="1000">
+		<col width="300">
+
+		<tr>
+			<td></td>
+			<td>
+				Hello, {{ user.first_name }}.
+				{% if not user.is_active %}
+					Your status is not active. Please contact website administrator					
+				{% endif %}
+				<form action="/accounts/logout/" method="post">
+					{% csrf_token %}
+					<input type="submit" value="Log Out" />
+				</form>
+
+			</td>
+		</tr>
+	</table>
+
+
+
+
+	<!-- You Belong To {{ userprofile.sales_unit }}<br> -->
+
+
+	{% block content %}{% endblock %}
+
+	{% block footer %}{% endblock %}
+
+</body>
+
+
+</html>
