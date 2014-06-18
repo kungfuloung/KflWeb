@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.template.loader import get_template
 from django.shortcuts import render
 from django.contrib import auth

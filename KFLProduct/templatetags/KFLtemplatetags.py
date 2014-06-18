@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django import template
 # from KPISetter.models import UserProfile
 # from KPISetter.views import is_sub
