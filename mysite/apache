@@ -1,0 +1,32 @@
+<VirtualHost *:8080>
+    ServerName 127.0.0.1
+
+    WSGIScriptAlias / /home/ubuntu/sites/KflWeb/mysite/staging.wsgi
+ 
+    
+    ErrorLog /var/log/apache2/apache.error.log
+    LogLevel warn
+
+    
+    CustomLog /var/log/apache2/apache.access.log combined
+    
+    ServerSignature Off
+</VirtualHost>
+
+<VirtualHost *:8081>
+    ServerName 127.0.0.1
+    
+    Alias /static/ "/home/ubuntu/sites/KflWeb/static/"
+    <Directory "/home/ubuntu/sites/KflWeb/static/">
+        Options MultiViews FollowSymLinks
+        AllowOverride None
+        Order deny,allow
+        Deny from all
+        Allow from 127.0.0.0/255.0.0.0 ::1/128
+        Header unset ETag
+        FileETag None
+        ExpiresActive on
+        ExpiresDefault "access plus 1 week"
+    </Directory>
+</VirtualHost>
+
